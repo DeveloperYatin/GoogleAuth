@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:googleauth/main.dart';
 
 void main() {
+
   group('Google Auth Widget Tests', () {
     testWidgets('Should display login button when user is not logged in', (WidgetTester tester) async {
       await tester.pumpWidget(const MyApp());

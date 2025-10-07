@@ -4,7 +4,8 @@ import 'package:googleauth/main.dart';
 
 void main() {
   group('Google Auth Widget Tests', () {
-    testWidgets('Should display login button when user is not logged in', (WidgetTester tester) async {
+    testWidgets('Should display login button when user is not logged in',
+        (WidgetTester tester) async {
       await tester.pumpWidget(const MyApp());
 
       // Verify that login button is displayed
@@ -13,7 +14,8 @@ void main() {
       expect(find.text('User'), findsNothing);
     });
 
-    testWidgets('Should display logout button when user is logged in', (WidgetTester tester) async {
+    testWidgets('Should display logout button when user is logged in',
+        (WidgetTester tester) async {
       await tester.pumpWidget(const MyApp());
 
       // Simulate a logged-in state by finding and tapping login button
@@ -41,7 +43,8 @@ void main() {
       expect(find.byType(Scaffold), findsOneWidget);
     });
 
-    testWidgets('Should have OutlinedButton for login', (WidgetTester tester) async {
+    testWidgets('Should have OutlinedButton for login',
+        (WidgetTester tester) async {
       await tester.pumpWidget(const MyApp());
 
       // Verify that OutlinedButton is present

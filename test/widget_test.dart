@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:googleauth/main.dart';
 
 void main() {
   group('Google Auth Widget Tests', () {
-    testWidgets('Should display login button when user is not logged in',
-        (WidgetTester tester) async {
+    testWidgets('Should display login button when user is not logged in', (WidgetTester tester) async {
       await tester.pumpWidget(const MyApp());
 
       // Verify that login button is displayed
@@ -15,14 +13,13 @@ void main() {
       expect(find.text('User'), findsNothing);
     });
 
-    testWidgets('Should display logout button when user is logged in',
-        (WidgetTester tester) async {
+    testWidgets('Should display logout button when user is logged in', (WidgetTester tester) async {
       await tester.pumpWidget(const MyApp());
 
       // Simulate a logged-in state by finding and tapping login button
       // Note: In a real test, you would mock the GoogleSignIn service
       expect(find.text('Login with Google'), findsOneWidget);
-      
+
       // Verify logout button is not initially visible
       expect(find.text('Logout'), findsNothing);
     });
@@ -39,7 +36,7 @@ void main() {
 
       // Verify that Center widget is present
       expect(find.byType(Center), findsOneWidget);
-      
+
       // Verify that Scaffold is present
       expect(find.byType(Scaffold), findsOneWidget);
     });
@@ -58,11 +55,11 @@ void main() {
       // Find and tap the login button
       final loginButton = find.text('Login with Google');
       expect(loginButton, findsOneWidget);
-      
+
       // Tap the button (though it won't actually sign in without proper setup)
       await tester.tap(loginButton);
       await tester.pump();
-      
+
       // Verify the button still exists after tap
       expect(loginButton, findsOneWidget);
     });
